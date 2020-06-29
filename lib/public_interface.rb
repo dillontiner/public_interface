@@ -1,13 +1,7 @@
-require "interface_definition"
+require 'require_all'
+require_all 'lib/private_implementation'
+require_all 'lib/public_interface'
 
 module PublicInterface
-  class << self
-    def call
-      PrivateImplementation.call
-    end
-
-    def error
-      raise Error, 'does not compute'
-    end
-  end
+  module PrivateImplementation; end; private_constant :PrivateImplementation
 end
